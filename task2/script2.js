@@ -1,5 +1,5 @@
 let input=document.querySelector("#todo");
-let addBtn=document.querySelector(".btn-warning");
+let addBtn=document.querySelector(".btn-primary");
 let list=document.querySelector("ul");
 let errormsg=document.querySelector(".errormsg");
 let clearAll = document.querySelector(".btn-dark");
@@ -16,7 +16,7 @@ addBtn.addEventListener("click",function (e)  {
     span.textContent = input.value;
     let button = document.createElement("button");
     button.classList.add("btn");
-    button.classList.add("btn-danger");
+    button.classList.add("btn-primary");
     button.classList.add("delete");
     button.style.marginRight = "5px";
     button.innerHTML=`<i class="fa-sharp fa-solid fa-trash"></i>`;
@@ -35,7 +35,7 @@ addBtn.addEventListener("click",function (e)  {
     list.append(li);
     input.value="";
 
-    let deleteBtns = document.querySelector(".delete");
+    let deleteBtns = document.querySelectorAll(".delete");
     deleteBtns.forEach(deleteBtn => {
         deleteBtn.addEventListener("click",function (e) {
             e.target.parentElement.parentElement.parentElement.remove();
@@ -54,8 +54,6 @@ addBtn.addEventListener("click",function (e)  {
     });
 });    
 
-
-
     input.addEventListener("keyup", function (e) {
         if (e.target.value.trim().length<4) {
         errormsg.style.display="block";
@@ -68,6 +66,4 @@ addBtn.addEventListener("click",function (e)  {
         }  
     })
 
-    clearAll.addEventListener("click",function (params) {
-        list.innerHTML="";
-    })
+    
